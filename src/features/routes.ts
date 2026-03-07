@@ -7,7 +7,7 @@ const router = Router();
 
 
 // TEST
-router.get("/test", );
+// router.get("/test");
 
 
 
