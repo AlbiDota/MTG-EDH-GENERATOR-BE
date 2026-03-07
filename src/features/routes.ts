@@ -1,13 +1,12 @@
 import { Router } from "express";
-import path from 'node:path';
-import fs from 'node:fs';
+import { scryfallTest } from "./scryfall-test/scryfallTest.js";
 
 const router = Router();
 
 
 
 // TEST
-// router.get("/test");
+router.get("/testSearch", scryfallTest);
 
 
 
