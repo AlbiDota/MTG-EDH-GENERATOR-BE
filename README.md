@@ -12,7 +12,7 @@ I will do my best to follow their guidelines:
 - Do not Scryfall logos or names in a way that implies my work/product is endorsed by Scryfall.
 - I will not "paywall" access, or require anyone to make payments, take surveys, rate content, join chats etc.
 - I will not use Scryfall data to create new games, or to imply the information and images are from any other game than MTG.
-- I will not simply repackage, republish or proxy scryfall data. The software must create addition value for end-users.
+- I will not simply repackage, republish or proxy scryfall data. The software must create additional value for end-users.
 
 
 ## Current goal to provide "additional value to end-users"
