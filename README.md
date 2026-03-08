@@ -2,7 +2,7 @@
 
 backend for MTG-EDH-GENERATOR-FE using NodeTS + Express
 
-## NB!
+## Important guidelines
 I will be using the scryfall API to fetch mtg cards.
 
 As a part of the Wizards of the Coast Fan Content Policy, Scryfall provides their card data and image database free of charge for the primary purpose of creating additional MTG software, community content or research.
@@ -14,7 +14,13 @@ I will do my best to follow their guidelines:
 - I will not use Scryfall data to create new games, or to imply the information and images are from any other game than MTG.
 - I will not simply repackage, republish or proxy scryfall data. The software must create additional value for end-users.
 
+### Rate Limits and Good Citizenship
+From Scryfall's documentation:
+
+We kindly ask that you insert 50 – 100 milliseconds of delay between the requests you send to the server at api.scryfall.com. (i.e., 10 requests per second on average).
+
+Submitting excessive requests to the server may result in a HTTP 429 Too Many Requests status code. Overloading the API after this point may result in a temporary or permanent ban of your IP address. Applications that continuously receive rate limit warnings over a longer period may also be blocked.
 
 ## Current goal to provide "additional value to end-users"
 
-The goal of this project is to make an easy-to-use commander deck generator with user inputs probably not being any more than which colors they want to include.
+The goal of this project is to make an easy-to-use commander deck generator with user inputs probably not being any more than which colors they want to include, or a specific commander.
