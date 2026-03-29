@@ -33,24 +33,26 @@ export async function commanderCheck(commander:string) {
 
         let validityCheck:boolean = false;
 
-        // litt cursed å begynne med i=1, men tihi
-        for (let i=1;types.length>i;i++) {
-            // den er nødt til å være legendary uavhengig av type
-            const legend:boolean = types[0].test(scryFallRes.data.type_line.toUpperCase());
-            if (!legend) {
-                continue;
-            }
-            const check:boolean = types[i].test(scryFallRes.data.type_line.toUpperCase());
-            console.log("---------------------------------------");
-            console.log("testing card type");
-            console.log("regex test:", types[i]);
-            console.log("card type: ", scryFallRes.data.type_line);
-            console.log("result: ", check);
-            if (check==true) {
-                validityCheck=true;
-                break;
+        
+        // den er nødt til å være legendary uavhengig av type
+        const legend:boolean = types[0].test(scryFallRes.data.type_line.toUpperCase());
+
+        if (legend) {
+            // litt cursed å begynne med i=1, men tihi
+            for (let i=1;types.length>i;i++) {
+                const check:boolean = types[i].test(scryFallRes.data.type_line.toUpperCase());
+                console.log("---------------------------------------");
+                console.log("testing card type");
+                console.log("regex test:", types[i]);
+                console.log("card type: ", scryFallRes.data.type_line);
+                console.log("result: ", check);
+                if (check==true) {
+                    validityCheck=true;
+                    break;
+                }
             }
         }
+        
 
         const checkResponse = {
             name: scryFallRes.data.name,
@@ -58,7 +60,8 @@ export async function commanderCheck(commander:string) {
             colorIdentity: scryFallRes.data.color_identity,
             type: scryFallRes.data.type_line,
             legality: scryFallRes.data.legalities.commander,
-            validCommander: validityCheck
+            validCommander: validityCheck,
+            entireCard: scryFallRes
         }
 
         return checkResponse;
