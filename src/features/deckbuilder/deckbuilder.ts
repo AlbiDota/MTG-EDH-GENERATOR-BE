@@ -6,6 +6,10 @@
 
 export async function deckBuilder(colors:string[], commander?:any) {
     try {
+        // henter en random ass commander
+        if (!commander && !!colors) {
+            
+        }
 
 
 
