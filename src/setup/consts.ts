@@ -8,3 +8,4 @@ export const scryfallHeaders = {
 }
 
 export const scryfallUrl = "https://api.scryfall.com"
+

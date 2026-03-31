@@ -1,7 +1,8 @@
 import { Request, Response } from "express";
-import { deckBuilder } from "./deckbuilder.js";
+import { deckBuilder } from "./mainDeckBuilder.js";
 import { commanderCheck } from "./tools/commanderValidator.js";
 import { commander } from "../../setup/types.js";
+import { fetchRandomCommander } from "./tools/fetchRandomCommander.js";
 
 
 export async function deckBuilderController(req:Request, res:Response) {
@@ -35,10 +36,11 @@ export async function deckBuilderController(req:Request, res:Response) {
         // let commander:commander | false = false
 
         // hvis commander er oppgitt, må vi validere og hente fargene.
+        let commanderInfo:commander;
         if (edh) {
-            const commanderInfo:commander = await commanderCheck(edh);
+            commanderInfo = await commanderCheck(edh);
             // const commanderInfo = await commanderCheck(edh);
-
+            // return res.status(200).json(commanderInfo)
             // err hvis ulovlig på no vis
             if (
                 commanderInfo.validCommander==false
@@ -50,6 +52,8 @@ export async function deckBuilderController(req:Request, res:Response) {
             colorId = commanderInfo.colorIdentity;
             const response = await deckBuilder(colorId, commanderInfo.entireCard);
             return res.status(200).json(response);
+        } else {
+            // commanderInfo = fetchRandomCommander(colorId);
         }
 
 

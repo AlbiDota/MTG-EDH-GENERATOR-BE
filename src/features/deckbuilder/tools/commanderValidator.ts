@@ -24,7 +24,6 @@ export async function commanderCheck(commander:string) {
         // kriterier på type line
         const types:RegExp[] = [
             /LEGEND/,
-            // /CREATURE/,
             /PLANESWALK/,
             /VEHICLE/,
             /SPACECRAFT/,
@@ -41,11 +40,11 @@ export async function commanderCheck(commander:string) {
             // litt cursed å begynne med i=1, men tihi
             for (let i=1;types.length>i;i++) {
                 const check:boolean = types[i].test(scryFallRes.data.type_line.toUpperCase());
-                console.log("---------------------------------------");
-                console.log("testing card type");
-                console.log("regex test:", types[i]);
-                console.log("card type: ", scryFallRes.data.type_line);
-                console.log("result: ", check);
+                // console.log("---------------------------------------");
+                // console.log("testing card type");
+                // console.log("regex test:", types[i]);
+                // console.log("card type: ", scryFallRes.data.type_line);
+                // console.log("result: ", check);
                 if (check==true) {
                     validityCheck=true;
                     break;
@@ -61,7 +60,7 @@ export async function commanderCheck(commander:string) {
             type: scryFallRes.data.type_line,
             legality: scryFallRes.data.legalities.commander,
             validCommander: validityCheck,
-            entireCard: scryFallRes
+            entireCard: scryFallRes.data
         }
 
         return checkResponse;

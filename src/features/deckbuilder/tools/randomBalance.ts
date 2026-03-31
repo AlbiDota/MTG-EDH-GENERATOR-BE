@@ -16,20 +16,22 @@ function getRandomInt(min:number, max:number):number {
 export function randomBalance() {
     // burde kanskje ha en generell inndeling av antall kort
 
-    // let deck = {
-    //     lands: getRandomInt(34, 39),
-    //     sorceries: getRandomInt(2, 10),
-    //     instants: getRandomInt(2, 10),
-    //     enchantments: getRandomInt(1, 10),
-    //     artifacts: getRandomInt(0, 10),
-    //     creatures: getRandomInt(14, 30)
-    // }
+    let deck = {
+        lands: getRandomInt(32, 39),
+        sorceries: getRandomInt(2, 10),
+        instants: getRandomInt(2, 10),
+        enchantments: getRandomInt(1, 10),
+        artifacts: getRandomInt(0, 10),
+        creatures: getRandomInt(14, 30)
+    }
+
+    // console.log(deck);
 
     // let cardsToGo:number = 99;
 
     // const lands:number = getRandomInt(34, 40);
 
-    return {}
+    return deck
 
 
 
