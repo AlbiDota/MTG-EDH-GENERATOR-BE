@@ -25,7 +25,7 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
             // colorFilter += (`+c:${colorIdentity[i].toLowerCase()}`);
             colorFilter += (`${colorIdentity[i].toLowerCase()}`);
         }
-        
+
         const fullUrl = `${baseUrl}/cards/random?q=is%3Acommander+${encodeURIComponent(colorFilter)}`
 
         let validityFlag:boolean = false;
@@ -39,9 +39,10 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
             validityFlag=card.validCommander
 
             console.log(validityFlag);
+            console.log("-");
             i++
 
-            sleep(150);
+            sleep(200);
 
         } while(validityFlag==false);
 

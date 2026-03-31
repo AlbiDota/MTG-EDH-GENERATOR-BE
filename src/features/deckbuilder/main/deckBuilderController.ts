@@ -1,8 +1,8 @@
 import { Request, Response } from "express";
 import { deckBuilder } from "./mainDeckBuilder.js";
-import { commanderCheck } from "./tools/commanderValidator.js";
-import { commander } from "../../setup/types.js";
-import { fetchRandomCommander } from "./tools/fetchRandomCommander.js";
+import { commanderCheck } from "../commanderHandler/commanderValidator.js";
+import { commander } from "../../../setup/types.js";
+import { fetchRandomCommander } from "../commanderHandler/fetchRandomCommander.js";
 
 
 export async function deckBuilderController(req:Request, res:Response) {

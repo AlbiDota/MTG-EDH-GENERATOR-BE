@@ -3,8 +3,8 @@
 // denne fila tror jeg blir den største, med kall på andre hjelpefunksjoner
 // for innhenting av kort og sjekker osv
 
-import { fetchRandomCommander } from "./tools/fetchRandomCommander.js";
-import { randomBalance } from "./tools/randomBalance.js";
+import { fetchRandomCommander } from "../commanderHandler/fetchRandomCommander.js";
+import { randomBalance } from "../tools/randomBalance.js";
 
 
 export async function deckBuilder(colors:string[], commander?:any) {
@@ -15,9 +15,9 @@ export async function deckBuilder(colors:string[], commander?:any) {
             commander = await fetchRandomCommander(colors);
         }
 
-        let deck = randomBalance();
+        let deckSize = randomBalance();
 
-        console.log(deck)
+        console.log(deckSize);
 
 
 

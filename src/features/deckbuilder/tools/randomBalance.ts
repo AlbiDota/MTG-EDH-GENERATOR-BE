@@ -16,7 +16,7 @@ function getRandomInt(min:number, max:number):number {
 export function randomBalance() {
     // burde kanskje ha en generell inndeling av antall kort
 
-    let deck = {
+    let deckSize = {
         lands: getRandomInt(32, 39),
         sorceries: getRandomInt(2, 10),
         instants: getRandomInt(2, 10),
@@ -31,7 +31,7 @@ export function randomBalance() {
 
     // const lands:number = getRandomInt(34, 40);
 
-    return deck
+    return deckSize;
 
 
 
