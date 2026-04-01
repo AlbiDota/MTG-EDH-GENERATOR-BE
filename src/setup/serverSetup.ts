@@ -1,7 +1,6 @@
 import express, { Router , Express} from "express";
 import dotenv from "dotenv";
-import path from 'node:path';
-import fs from 'node:fs';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -9,11 +8,17 @@ dotenv.config();
 import routes from "../features/routes.js"
 
 export function createServer() {
-    const app = express();
+    const app:Express = express();
 
     /* --- 🦐 --- */
 
     app.use(express.json());
+
+    app.use(cors({
+        origin: [
+            "http://localhost:3000",
+        ]
+    }));
 
     importRoutes(app);
 
