@@ -26,3 +26,16 @@ From Scryfall's documentation:
 ## Current goal to provide "additional value to end-users"
 
 The goal of this project is to make an easy-to-use commander deck generator with user inputs probably not being any more than which colors they want to include, or a specific commander.
+
+<br/><br/>
+
+## Run locally
+
+## Install dependencies
+``` in root directory
+npm i
+```
+### Run server
+``` in root directory
+npm start
+```
