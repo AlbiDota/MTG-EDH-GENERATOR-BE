@@ -1,7 +1,8 @@
 # MTG-EDH-GENERATOR-BE
 
-backend for MTG-EDH-GENERATOR-FE using NodeTS + Express
+Backend for MTG-EDH-GENERATOR-FE using NodeTS + Express!
 
+<br/><br/>
 
 ## Important guidelines
 I will be using the scryfall API to fetch mtg cards.
@@ -29,6 +30,13 @@ The goal of this project is to make an easy-to-use commander deck generator with
 
 <br/><br/>
 
+# Additional info
+The frontend part of this project is in a separate github repo @ [MTG-EDH-GENERATOR-FE](https://github.com/AlbiDota/MTG-EDH-GENERATOR-FE).
+
+I suggest you check it out as well if you consider running this thingy locally.
+
+<br/><br/>
+
 ## Run locally
 
 ## Install dependencies
@@ -39,3 +47,8 @@ npm i
 ``` in root directory
 npm start
 ```
+
+<br/><br/>
+
+## Author
+**GitHub:** [AlbiDota](https://github.com/AlbiDota)  
