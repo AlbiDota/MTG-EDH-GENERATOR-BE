@@ -33,7 +33,6 @@ export async function deckBuilderController(req:Request, res:Response) {
         }
         // console.log(colorId);
 
-        // let commander:commander | false = false
 
         // hvis commander er oppgitt, må vi validere og hente fargene.
         let commanderInfo:commander;
@@ -42,23 +41,18 @@ export async function deckBuilderController(req:Request, res:Response) {
             // const commanderInfo = await commanderCheck(edh);
             // return res.status(200).json(commanderInfo)
             // err hvis ulovlig på no vis
-            if (
-                commanderInfo.validCommander==false
-                && colorId.length == 0
-            ) {
+            if (commanderInfo.validCommander==false) {
                 return res.status(400).json({message:"not a valid commander"})
             }
 
             colorId = commanderInfo.colorIdentity;
-            const response = await deckBuilder(colorId, commanderInfo.entireCard);
-            return res.status(200).json(response);
-        } else {
-            // commanderInfo = fetchRandomCommander(colorId);
+            const response:any = await deckBuilder(colorId, commanderInfo.entireCard);
+            return res.status(response?.status || 200).json(response);
         }
 
 
-        const response = await deckBuilder(colorId);
-        return res.status(200).json(response);
+        const response:any = await deckBuilder(colorId);
+        return res.status(response?.status || 200).json(response);
 
     } catch(err: any) {
         return res.status(err.response?.status || 500).json(err.message || err);

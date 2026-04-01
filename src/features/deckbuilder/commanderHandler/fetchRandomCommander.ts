@@ -13,9 +13,9 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
         const baseUrl = scryfallUrl;
         const headers = scryfallHeaders;
 
-        // let colorFilter = "-c:w-c:u-c:b-c:g-c:r"
+        // let colorFilter = "-id:w -id:u -id:b -id:r -id:g";
         // let colorFilter = "-c:wubgr"
-        let colorFilter = "c="
+        let colorFilter = "id=";
         // for (let i=0; colorIdentity.length>i;i++) {
         //     colorFilter = colorFilter.replace(`-c:${colorIdentity[i].toLowerCase()}`, "");
         // }
@@ -28,15 +28,18 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
 
         const fullUrl = `${baseUrl}/cards/random?q=is%3Acommander+${encodeURIComponent(colorFilter)}`
 
+        console.log(fullUrl);
+
         let validityFlag:boolean = false;
         let card:commander;
         let i = 1;
         do {
             console.log(`forsøk nr: ${i}`)
 
-            const scryfallRes:any = await axios.get(fullUrl,headers);
+            const scryfallRes:any = await axios.get(fullUrl,headers); 
+            console.log(scryfallRes.data.name)
             card = await commanderCheck(scryfallRes.data.name);
-            validityFlag=card.validCommander
+            validityFlag = card.validCommander
 
             console.log(validityFlag);
             console.log("-");
@@ -49,6 +52,6 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
         return card;
 
     } catch(err:any) {
-        throw ({message:"Error in fetchRandomCommander", err});
+        throw ({status:500, message:"Error in fetchRandomCommander", err});
     }
 }

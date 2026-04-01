@@ -37,7 +37,7 @@ export async function commanderCheck(commander:string) {
         const legend:boolean = types[0].test(scryFallRes.data.type_line.toUpperCase());
 
         if (legend) {
-            // litt cursed å begynne med i=1, men tihi
+
             for (let i=1;types.length>i;i++) {
                 const check:boolean = types[i].test(scryFallRes.data.type_line.toUpperCase());
                 // console.log("---------------------------------------");
@@ -56,16 +56,17 @@ export async function commanderCheck(commander:string) {
         const checkResponse = {
             name: scryFallRes.data.name,
             uri: scryFallRes.data.uri,
-            colorIdentity: scryFallRes.data.color_identity,
+            colorIdentity: scryFallRes.data.color_identity.length?scryFallRes.data.color_identity.length:["C"],
             type: scryFallRes.data.type_line,
             legality: scryFallRes.data.legalities.commander,
             validCommander: validityCheck,
             entireCard: scryFallRes.data
         }
+        // console.log(checkResponse.name);
 
         return checkResponse;
         
     } catch(err:any) {
-        throw ({message:"Error in commanderCheck", err});
+        throw ({status:500, message:"Error in commanderCheck", err});
     }
 }
