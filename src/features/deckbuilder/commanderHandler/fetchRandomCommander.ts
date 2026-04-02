@@ -2,11 +2,8 @@ import axios from "axios";
 import { scryfallHeaders, scryfallUrl } from "../../../setup/consts.js";
 import { commanderCheck } from "./commanderValidator.js";
 import { commander } from "../../../setup/types.js";
+import { sleep } from "../tools/sleep.js";
 
-// https://www.sitepoint.com/delay-sleep-pause-wait/
-function sleep(ms:number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 export async function fetchRandomCommander(colorIdentity:string[]) {
     try {
@@ -45,7 +42,7 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
             console.log("-");
             i++
 
-            sleep(200);
+            await sleep(200);
 
         } while(validityFlag==false);
 

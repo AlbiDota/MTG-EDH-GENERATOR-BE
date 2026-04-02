@@ -1,4 +1,5 @@
 import { cardCall } from "../tools/cardCall.js";
+import { sleep } from "../tools/sleep.js";
 
 
 export async function getCards(colors:string[], amount:number, cardType?: string) {
@@ -26,6 +27,7 @@ export async function getCards(colors:string[], amount:number, cardType?: string
         for (let i=0;amount>i;i++) {
             let card = await cardCall(queryFilter);
             cards.push(card);
+            await sleep(200);
         }
 
         return cards;

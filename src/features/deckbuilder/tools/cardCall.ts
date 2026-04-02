@@ -1,10 +1,7 @@
 import axios from "axios";
 import { scryfallHeaders, scryfallUrl } from "../../../setup/consts.js";
+import { sleep } from "./sleep.js";
 
-// https://www.sitepoint.com/delay-sleep-pause-wait/
-function sleep(ms:number) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 export async function cardCall(filter:string) {
     try {
@@ -16,7 +13,8 @@ export async function cardCall(filter:string) {
 
         // console.log(fullUrl);
 
-        sleep(111);
+        // jævla viktig
+        await sleep(200);
 
         const apiRes = await axios.get(fullUrl, headers);
 
