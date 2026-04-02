@@ -24,6 +24,15 @@ From Scryfall's documentation:
 >
 >Submitting excessive requests to the server may result in a HTTP 429 Too Many Requests status code. Overloading the API after this point may result in a temporary or permanent ban of your IP address. Applications that continuously receive rate limit warnings over a longer period may also be blocked.
 
+>The Scryfall API (api.scryfall.com) has the following hard rate limits:
+>
+>/cards/search — 2/second (500ms)
+>/cards/named — 2/second (500ms)
+>/cards/random — 2/second (500ms)
+>/cards/collection — 2/second (500ms)
+>All other methods — 10/second (100ms)
+
+
 ## Current goal to provide "additional value to end-users"
 
 The goal of this project is to make an easy-to-use commander deck generator with user inputs probably not being any more than which colors they want to include, or a specific commander.
