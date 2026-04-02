@@ -42,7 +42,7 @@ export async function fetchRandomCommander(colorIdentity:string[]) {
             console.log("-");
             i++
 
-            await sleep(200);
+            await sleep(555);
 
         } while(validityFlag==false);
 

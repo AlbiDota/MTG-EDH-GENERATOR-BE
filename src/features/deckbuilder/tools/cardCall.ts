@@ -14,7 +14,7 @@ export async function cardCall(filter:string) {
         // console.log(fullUrl);
 
         // jævla viktig
-        await sleep(200);
+        await sleep(555);
 
         const apiRes = await axios.get(fullUrl, headers);
 

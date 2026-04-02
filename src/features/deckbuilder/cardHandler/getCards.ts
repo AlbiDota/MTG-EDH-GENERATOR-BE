@@ -27,7 +27,7 @@ export async function getCards(colors:string[], amount:number, cardType?: string
         for (let i=0;amount>i;i++) {
             let card = await cardCall(queryFilter);
             cards.push(card);
-            await sleep(200);
+            await sleep(555);
         }
 
         return cards;
