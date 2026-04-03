@@ -8,6 +8,7 @@
 import * as dotenv from 'dotenv';
 dotenv.config();
 import { createServer } from './setup/serverSetup.js';
+import { cronBulk } from './features/bulkData/cronBulk.js';
 
 
 async function main() {
@@ -18,6 +19,8 @@ async function main() {
         app.listen(PORT, () => {
             console.log(`server running on port ${PORT}`);
         });
+
+        cronBulk();
 
     } catch(err) {
         console.error(`error in main: `, err);

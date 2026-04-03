@@ -8,3 +8,11 @@ export interface commander {
     validCommander: boolean,
     entireCard: any
 }
+
+export interface card {
+    name: string,
+    uri: string,
+    colorIdentity: string[],
+    type: string,
+    image: string
+}

@@ -6,9 +6,16 @@ dotenv.config();
 
 // routes
 import routes from "../features/routes.js"
+import { cardLib } from "./librarySetup.js";
+
 
 export function createServer() {
     const app:Express = express();
+
+    /* --- library json --- */
+    console.log("parsing card library")
+    const library = cardLib.getInstance().library;
+    console.log("library loaded:", Object.keys(library).length,"cards parsed");
 
     /* --- 🦐 --- */
 

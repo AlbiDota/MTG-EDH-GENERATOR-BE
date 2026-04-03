@@ -1,10 +1,14 @@
 // axios request headers to reuse for scryfall api calls
 
-export const scryfallHeaders = {
+export const scryfallHeaders2 = {
     headers: {
-    "User-Agent":"MTG-EDH-GENERATOR-BE/1.0",
+    "User-Agent":"MTG-EDH-GENERATOR-BE/2.0",
     "Accept": "application/json"
     }
+}
+export const scryfallHeaders = {
+    "User-Agent":"MTG-EDH-GENERATOR-BE/2.0",
+    "Accept": "application/json"
 }
 
 export const scryfallUrl = "https://api.scryfall.com"

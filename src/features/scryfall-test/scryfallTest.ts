@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Request, Response } from "express";
-import { scryfallHeaders, scryfallUrl } from "../../setup/consts.js";
+import { scryfallHeaders, scryfallHeaders2, scryfallUrl } from "../../setup/consts.js";
 
 
 export async function scryfallTest(req:Request, res:Response) {
@@ -8,7 +8,7 @@ export async function scryfallTest(req:Request, res:Response) {
         let q = req.query?.q;
 
         const url = scryfallUrl;
-        const headers = scryfallHeaders;
+        const headers = scryfallHeaders2;
 
         const finalUrl = `${url}/cards/named?fuzzy=${q}`;
 
