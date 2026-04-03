@@ -38,9 +38,10 @@ export async function deckBuilderController(req:Request, res:Response) {
             // return res.status(200).json(card);
         }
 
+        console.log("makin da deck",new Date().toLocaleString())
         const deck = deckBuilder(colorId, card);
 
-        return res.status(200).json(deck);
+        return res.status(deck?.status || 200).json(deck?.message || deck);
 
     } catch(err: any) {
         return res.status(err.response?.status || 500).json(err.message || err);

@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { scryfallTest } from "./scryfall-test/scryfallTest.js";
+// import { scryfallTest } from "./scryfall-test/scryfallTest.js";
 import { deckBuilderController } from "./deckbuilder/main/deckBuilderController.js";
 
 const router = Router();
@@ -7,7 +7,7 @@ const router = Router();
 
 
 // TEST
-router.get("/testSearch", scryfallTest);
+// router.get("/testSearch", scryfallTest);
 
 
 // DECKBUILDER

@@ -11,7 +11,10 @@ export class cardLib {
         const dirname = path.dirname(filename);
     
         const filePath = path.join(dirname, "../features/bulkData/library.json");
-        const library = JSON.parse(fs.readFileSync(filePath, "utf8"));
+        let library = JSON.parse(fs.readFileSync(filePath, "utf8"));
+        console.log("library loading:",library.length,"cards parsed")
+        library = library.filter((card:any) => card.object=="card" 
+        && card.name && card.image_uris && card.scryfall_uri && card.type_line)
         this._library = library;
     }
 

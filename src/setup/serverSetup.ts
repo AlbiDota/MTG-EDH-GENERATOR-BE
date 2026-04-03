@@ -15,7 +15,7 @@ export function createServer() {
     /* --- library json --- */
     console.log("parsing card library")
     const library = cardLib.getInstance().library;
-    console.log("library loaded:", Object.keys(library).length,"cards parsed");
+    console.log("library loaded:", Object.keys(library).length,"cards after filter");
 
     /* --- 🦐 --- */
 

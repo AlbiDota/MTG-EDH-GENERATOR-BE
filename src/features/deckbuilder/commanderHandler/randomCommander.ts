@@ -8,7 +8,7 @@ import { cardLib } from '../../../setup/librarySetup.js';
 import { randomInt } from '../tools/randomInt.js';
 
 export function randomCommander(colorIdentity:string[]):card {
-    const library = cardLib.getInstance().library;
+    const library:any[] = cardLib.getInstance().library;
 
     const validTypes:RegExp = /(?=.*legend)(?=.*(planeswalker|vehicle|spacecraft|creature))/i
     let legends:any[] = library.filter((card:any) => validTypes.test(card.type_line) && card.legalities.commander == "legal");
