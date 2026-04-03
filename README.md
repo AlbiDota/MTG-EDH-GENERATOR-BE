@@ -32,6 +32,7 @@ From Scryfall's documentation:
 >/cards/collection — 2/second (500ms)
 >All other methods — 10/second (100ms)
 
+I realized pretty late in the process, that to respect these rate limits, I absolutely have to download their bulk data and use that. This means I have to do a complete rework or build it from the ground up again. The old version will Still be available in some folder.
 
 ## Current goal to provide "additional value to end-users"
 

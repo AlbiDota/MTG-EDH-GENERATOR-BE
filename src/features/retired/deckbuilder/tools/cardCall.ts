@@ -11,7 +11,7 @@ export async function cardCall(filter:string) {
 
         const fullUrl = `${baseUrl}/cards/random?q=f%3Dcommander%20${filter}`;
 
-        // console.log(fullUrl);
+        console.log(fullUrl);
 
         // jævla viktig
         await sleep(555);
