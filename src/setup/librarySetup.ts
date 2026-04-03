@@ -14,7 +14,7 @@ export class cardLib {
         let library = JSON.parse(fs.readFileSync(filePath, "utf8"));
         console.log("library loading:",library.length,"cards parsed")
         library = library.filter((card:any) => card.object=="card" 
-        && card.name && card.image_uris && card.scryfall_uri && card.type_line)
+        && card.name && card.image_uris && card.scryfall_uri && card.type_line && card.lang=="en")
         this._library = library;
     }
 
