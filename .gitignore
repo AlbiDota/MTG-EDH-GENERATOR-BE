@@ -24,4 +24,4 @@ yarn-error.log*
 
 .env
 /dist
-/src/features/bulkData/library.json
+# /src/features/bulkData/library.json
