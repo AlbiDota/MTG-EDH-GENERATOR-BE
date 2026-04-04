@@ -6,8 +6,8 @@ import MiniSearch from 'minisearch';
 import { cardMapper } from '../tools/cardMapper.js';
 import { cardLib } from '../../../setup/librarySetup.js';
 
-export function commanderCheck(name:string):any | false {
-    const library = cardLib.getInstance().library;
+export async function commanderCheck(name:string):Promise<any | false> {
+    const library = (await cardLib.getInstance()).library;
 
     // const types:RegExp[] = [
     //         /LEGEND/,

@@ -33,13 +33,13 @@ export async function deckBuilderController(req:Request, res:Response) {
 
         let card:card | false = false;
         if (edh) {
-            card = commanderCheck(edh);
+            card = await commanderCheck(edh);
             if (card) colorId = card.colorIdentity;
             // return res.status(200).json(card);
         }
 
         console.log("makin da deck",new Date().toLocaleString())
-        const deck = deckBuilder(colorId, card);
+        const deck = await deckBuilder(colorId, card);
 
         return res.status(deck?.status || 200).json(deck?.message || deck);
 

@@ -11,11 +11,12 @@ import { randomInt } from "../tools/randomInt.js";
 
 
 
-export function deckBuilder(colors:string[], commander?:card|false) {
+export async function deckBuilder(colors:string[], commander?:card|false) {
     try {
         // henter en random ass commander
         if (!commander) {
-            commander = (randomCommander(colors));
+            const edh = await randomCommander(colors);
+            commander =  edh;
         }
         
         // setter farger hvis de mangler
@@ -42,7 +43,7 @@ export function deckBuilder(colors:string[], commander?:card|false) {
 
         for (const [key, value] of Object.entries(deckSize)) {
             let cards:any[] = [];
-            cards = getCards(colors, value, key);
+            cards = await getCards(colors, value, key);
             deck.push(...cards);
         }
         // ---
@@ -57,7 +58,7 @@ export function deckBuilder(colors:string[], commander?:card|false) {
 
         for (let i=0;b.length>i;i++) {
             let cards:any[] = [];
-            cards = getCards(colors, c, b[i]);
+            cards = await getCards(colors, c, b[i]);
             deck = [...deck, ...cards];
         }
 
@@ -65,7 +66,7 @@ export function deckBuilder(colors:string[], commander?:card|false) {
         while (deck.length < 100) {
             slotsToFill = 100 - deck.length;
             let cards:any[] = [];
-            cards = getCards(colors, slotsToFill);
+            cards = await getCards(colors, slotsToFill);
             // deck.push(...cards);
             deck = [...deck, ...cards];
         }
@@ -90,7 +91,6 @@ export function deckBuilder(colors:string[], commander?:card|false) {
         
         return {
             deckSize: deck.length,
-            // nameList: nameList,
             rawDeck: deck
         };
 

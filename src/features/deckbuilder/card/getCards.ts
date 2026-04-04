@@ -4,10 +4,10 @@ import { cardMapper } from "../tools/cardMapper.js";
 import { randomInt } from "../tools/randomInt.js";
 
 
-export function getCards(colors:string[], amount:number, cardType?:string):card[] {
+export async function getCards(colors:string[], amount:number, cardType?:string):Promise<card[]> {
     if (cardType== "basicLand") cardType = "basic land";
 
-    const library:any[] = cardLib.getInstance().library;
+    const library:any[] = (await cardLib.getInstance()).library;
 
 
     const validColors = colors.join("");

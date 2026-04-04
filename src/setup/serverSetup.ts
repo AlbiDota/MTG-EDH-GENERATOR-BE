@@ -9,12 +9,13 @@ import routes from "../features/routes.js"
 import { cardLib } from "./librarySetup.js";
 
 
-export function createServer() {
+export async function createServer() {
     const app:Express = express();
 
     /* --- library json --- */
     console.log("parsing card library")
-    const library = cardLib.getInstance().library;
+    const instance = await cardLib.getInstance();
+    const library = instance.library;
     console.log("library loaded:", Object.keys(library).length,"cards after filter");
 
     /* --- 🦐 --- */

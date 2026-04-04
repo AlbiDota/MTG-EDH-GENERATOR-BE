@@ -13,7 +13,7 @@ import { cronBulk } from './features/bulkData/cronBulk.js';
 
 async function main() {
     try {
-        const app = createServer();
+        const app = await createServer();
         const PORT = process.env.PORT || 3001;
 
         app.listen(PORT, () => {
