@@ -25,3 +25,7 @@ yarn-error.log*
 .env
 /dist
 /src/features/bulkData/library.json
+# Elastic Beanstalk Files
+.elasticbeanstalk/*
+!.elasticbeanstalk/*.cfg.yml
+!.elasticbeanstalk/*.global.yml

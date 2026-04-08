@@ -5,7 +5,8 @@
     "main": "main.js",
     "scripts": {
         "build": "tsc",
-        "start": "npm run build && node dist/main.js"
+        "start": "npm run build && node dist/main.js",
+        "bazinga": "node dist/main.js"
     },
     "keywords": [],
     "author": "Albert Einarssønn",
@@ -24,6 +25,7 @@
         "dotenv": "^16.5.0",
         "express": "^5.1.1",
         "minisearch": "^7.2.0",
-        "node-cron": "^4.2.1"
+        "node-cron": "^4.2.1",
+        "typescript": "^5.9.3"
     }
 }

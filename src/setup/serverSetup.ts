@@ -25,6 +25,7 @@ export async function createServer() {
     app.use(cors({
         origin: [
             "http://localhost:3000",
+            "https://mtg-edh-generator.web.app/"
         ]
     }));
 
