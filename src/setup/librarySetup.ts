@@ -17,11 +17,11 @@ export class cardLib {
     
         const filePath = path.join(dirname, "../features/bulkData/library.json");
 
-        if (!fs.existsSync(filePath)) {
-            console.log("could not find library.json");
-            console.log("starting downloadBulk()");
-            await downloadBulk();
-        }
+        // if (!fs.existsSync(filePath)) {
+        //     console.log("could not find library.json");
+        //     console.log("starting downloadBulk()");
+        //     await downloadBulk();
+        // }
 
         let library = JSON.parse(fs.readFileSync(filePath, "utf8"));
         console.log("library loading:",library.length,"cards parsed")
