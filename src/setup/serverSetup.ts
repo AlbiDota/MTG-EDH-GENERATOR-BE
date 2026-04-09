@@ -13,10 +13,10 @@ export async function createServer() {
     const app:Express = express();
 
     /* --- library json --- */
-    console.log("parsing card library")
-    const instance = await cardLib.getInstance();
-    const library = instance.library;
-    console.log("library loaded:", Object.keys(library).length,"cards after filter");
+    // console.log("parsing card library")
+    // const instance = await cardLib.getInstance();
+    // const library = instance.library;
+    // console.log("library loaded:", Object.keys(library).length,"cards after filter");
 
     /* --- 🦐 --- */
 
