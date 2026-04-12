@@ -40,11 +40,13 @@ export async function getCards(colors:string[], amount:number, cardType?:string)
                 legal = true
             }
         } while (!legal)
-        
+    
         const card:card = cardMapper(validCards[int]);
-        deck.push(card);
-
-        // hvis kortet er lagt til, kan vi jo bare fjerne den fra der vi plukker xd
+        const exists:number = deck.findIndex(d=>d.name==card.name);
+        if (exists==-1 || cardType == "basic land"){
+            deck.push(card);
+        }
+        // hvis kortet er lagt til, kan vi også jo bare fjerne den fra der vi plukker xd
         // så enkel løsning for så mye grubling ..
         // basic lands ska fortsatt bli igjen, så er det eneste vi trenger
         // å tenke på :D

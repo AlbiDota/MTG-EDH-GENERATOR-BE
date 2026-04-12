@@ -15,9 +15,9 @@ export function randomBalance(c:number) {
         instant: randomInt(2, 10),
         enchantment: randomInt(2, 10),
         artifact: randomInt(2, 10),
-        creature: randomInt(20, 32),
-        land: randomInt(7, 16) + c*c,
-        basicLand: Math.floor(30/c + 2*c)
+        creature: randomInt(7, 15), //den her er lav, fordi vi henter tribals når vi fyller opp
+        land: randomInt(5, 12) + Math.floor(c*(c+2)),
+        basicLand: randomInt(35, 40) - Math.ceil(c*(c+1))
     }
 
     // let deckSize = {

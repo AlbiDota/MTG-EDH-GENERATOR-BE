@@ -42,41 +42,70 @@ export async function deckBuilder(colors:string[], commander?:card|false) {
         deck.push(commander);
 
         for (const [key, value] of Object.entries(deckSize)) {
-            let cards:any[] = [];
+            let cards:card[] = [];
             cards = await getCards(colors, value, key);
             deck.push(...cards);
         }
         // ---
 
 
-        // --- filler cards
+        // --- finding commanders type to fill with tribals
         let slotsToFill:number = 100 - count;
 
         const a:string = commander.type.replace(/(Legendary)*(Creature)*(Planeswalker)*[^\w\s]*/gi,"");
         const b:string[] = a.trim().split(" ");
-        const c:number = Math.ceil(slotsToFill/b.length);
-
+        const c:number = Math.ceil(slotsToFill/(b.length));
+        
+        // variabel for vekting av tribals. fks Doran er treefolk druid,
+        // han vil obv ha flere treefolks enn druids generelt
+        // første tribal ordet er gjerne det viktigste, så
+        // vi slenger inn en vektvariabel, som reduseres på hver iterasjon
+        // av array "b"
+        let tribalWeight = 3
+        // console.log(slotsToFill)
         for (let i=0;b.length>i;i++) {
-            let cards:any[] = [];
-            cards = await getCards(colors, c, b[i]);
-            deck = [...deck, ...cards];
+            try {
+                let cards:card[] = [];
+                cards = await getCards(colors, Math.floor(c*tribalWeight), b[i]);
+                // deck = [...deck, ...cards];
+                // dytter inn nye kort
+                cards.forEach(card => {
+                    const existCheck = deck.findIndex(d=>d.name==card.name);
+                    // findIndex gir -1 om den ikke finner kortet.
+                    if (existCheck==-1) {
+                        deck.push(card);
+                    }
+                });
+                tribalWeight = tribalWeight*0.2;
+            } catch (err) {
+                console.log("vanskelig å finne tribals")
+            }
         }
 
         // --- final card count + filling
         while (deck.length < 100) {
             slotsToFill = 100 - deck.length;
-            let cards:any[] = [];
+            let cards:card[] = [];
             cards = await getCards(colors, slotsToFill);
-            // deck.push(...cards);
-            deck = [...deck, ...cards];
+            cards.forEach(card => {
+                const exists:number = deck.findIndex(d=>d.name==card.name);
+                if (exists==-1){
+                    deck.push(card);
+                }
+            });
+            
+            // deck = [...deck, ...cards];
         }
         // ---
 
         // --- trimming the deck down to 100 cards!!
         while (deck.length>100) {
-            // removing random cards of index between 1 (0 is the edh guy) and length
+            // removing random non-land cards of index between 1 (0 is the edh guy) and length
             let rand = randomInt(1, deck.length);
-            deck.splice(rand, 1);
+            if (!deck[rand].type.includes("Land")) {
+                // console.log("trimming card",deck[rand].name)
+                deck.splice(rand, 1);
+            }
         }
         // ---
 
