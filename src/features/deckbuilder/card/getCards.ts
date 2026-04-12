@@ -22,11 +22,14 @@ export async function getCards(colors:string[], amount:number, cardType?:string)
     if (cardType) {
         const regex2:RegExp = new RegExp(`${cardType}`, "i");
         // const regex2:RegExp =/\b(sorcery|instant|enchantment|artifact|creature|land|basic land)\b/i
-        validCards = validCards.filter((card:any) => 
+        if (validCards.filter((card:any) =>{return regex2.test(card.type_line)}).length) {
+            validCards = validCards.filter((card:any) => 
 
-            {return regex2.test(card.type_line)}
+                {return regex2.test(card.type_line)}
 
-        );
+            );
+        }
+        
     }
 
 
