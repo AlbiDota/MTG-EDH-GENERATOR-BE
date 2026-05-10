@@ -1,10 +1,10 @@
 {
     "name": "MTG-EDH-GENERATOR-BE",
-    "version": "2.0.2",
+    "version": "2.0.3",
     "description": "",
     "main": "main.js",
     "scripts": {
-        "build": "tsgo",
+        "build": "tsc",
         "bazinga": "npm run build && node dist/main.js",
         "start": "node dist/main.js"
     },
@@ -16,8 +16,7 @@
         "@types/cors": "^2.8.19",
         "@types/express": "^5.0.6",
         "@types/node": "^25.5.2",
-        "@types/node-cron": "^3.0.11",
-        "@typescript/native-preview": "^7.0.0-dev.20260421.2"
+        "@types/node-cron": "^3.0.11"
     },
     "dependencies": {
         "@types/cors": "^2.8.19",

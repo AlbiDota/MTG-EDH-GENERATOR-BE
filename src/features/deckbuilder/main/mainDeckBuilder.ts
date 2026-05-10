@@ -32,9 +32,14 @@ export async function deckBuilder(colors:string[], commander?:card|false) {
         for (const [key, val] of Object.entries(deckSize)) {
             count = count + val;
         }
+        // ---
+
+        
         // console.log("deckSize: ",count);
         // console.log(deckSize);
-        // ---
+        // console.log(commander.name);
+        // console.log(commander.type);
+        // console.log(commander.colorIdentity);
 
 
         // --- filling deck
@@ -103,7 +108,7 @@ export async function deckBuilder(colors:string[], commander?:card|false) {
             // removing random non-land cards of index between 1 (0 is the edh guy) and length
             let rand = randomInt(1, deck.length);
             if (!deck[rand].type.includes("Land")) {
-                // console.log("trimming card",deck[rand].name)
+                console.log("trimming card",deck[rand].name);
                 deck.splice(rand, 1);
             }
         }
